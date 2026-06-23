@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prof. Dr. Awais Yasin | MagicQC</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    min-height: 100vh;
+    background: linear-gradient(160deg, #1C4A5A 0%, #2E6B7E 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    padding: 24px 16px;
+  }
+
+  .card {
+    background: #ffffff;
+    width: 100%;
+    max-width: 400px;
+    border-radius: 24px;
+    box-shadow: 0 24px 64px rgba(0,0,0,0.35), 0 8px 24px rgba(0,0,0,0.2);
+    overflow: hidden;
+    animation: fadeUp 0.55s cubic-bezier(0.22,1,0.36,1) both;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(32px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── Header ── */
+  .card-header {
+    background: linear-gradient(160deg, #1C4A5A 0%, #2E6B7E 100%);
+    position: relative;
+    padding: 28px 24px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 90px;
+  }
+
+  .logo-wrap {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-bottom: 20px;
+  }
+
+  .logo-icon {
+    width: 48px;
+    height: 48px;
+    flex-shrink: 0;
+  }
+
+  .logo-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+    mix-blend-mode: multiply;
+  }
+
+  .logo-text {
+    font-size: 20px;
+    font-weight: 800;
+    color: #fff;
+    letter-spacing: 0.5px;
+  }
+
+  .logo-text span {
+    color: #fff;
+  }
+
+  /* curved white cutout */
+  .header-curve {
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    height: 48px;
+    overflow: hidden;
+  }
+
+  .header-curve svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+
+  /* ── Profile Section ── */
+  .profile-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 24px 20px;
+    margin-top: 0;
+  }
+
+  .avatar-ring {
+    width: 108px;
+    height: 108px;
+    border-radius: 50%;
+    background: conic-gradient(#8B7D2A 0deg, #C4A832 80deg, #2E6B7E 180deg, #1C4A5A 280deg, #8B7D2A 360deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 0 3px #fff, 0 4px 18px rgba(180,155,50,0.4);
+    margin-bottom: 14px;
+    flex-shrink: 0;
+  }
+
+  .avatar-ring img {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+  }
+
+  .badge {
+    background: linear-gradient(135deg, #F5A623, #D4891A);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    padding: 5px 14px;
+    border-radius: 50px;
+    margin-bottom: 12px;
+  }
+
+  .name {
+    font-size: 22px;
+    font-weight: 800;
+    color: #1a2a32;
+    text-align: center;
+    margin-bottom: 4px;
+    line-height: 1.2;
+  }
+
+  .subtitle {
+    font-size: 13px;
+    font-weight: 500;
+    color: #2E6B7E;
+    text-align: center;
+    margin-bottom: 0;
+  }
+
+  .divider {
+    height: 1px;
+    background: #e8eef0;
+    margin: 18px 24px;
+  }
+
+  /* ── Buttons ── */
+  .buttons {
+    padding: 0 20px 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    padding: 14px 20px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 700;
+    color: #fff;
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+    cursor: pointer;
+  }
+
+  .btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 28px rgba(0,0,0,0.22);
+  }
+
+  .btn:active {
+    transform: translateY(-1px);
+  }
+
+  .btn-whatsapp {
+    background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+    box-shadow: 0 4px 16px rgba(37,211,102,0.35);
+  }
+
+  .btn-linkedin {
+    background: linear-gradient(135deg, #0077B5 0%, #004C87 100%);
+    box-shadow: 0 4px 16px rgba(0,119,181,0.35);
+  }
+
+  .btn-website {
+    background: linear-gradient(135deg, #F5A623 0%, #D4891A 100%);
+    box-shadow: 0 4px 16px rgba(245,166,35,0.4);
+  }
+
+  .btn-icon {
+    width: 22px;
+    height: 22px;
+    flex-shrink: 0;
+  }
+
+</style>
+</head>
+<body>
+
+<div class="card">
+
+  <!-- Header with logo -->
+  <div class="card-header">
+    <div class="logo-wrap">
+      <div class="logo-icon">
+        <img src="images.jpeg" alt="Robionix Logo">
+      </div>
+      <div class="logo-text">Magic<span>QC</span></div>
+    </div>
+    <div class="header-curve">
+      <svg viewBox="0 0 400 48" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,0 Q200,64 400,0 L400,48 L0,48 Z" fill="#ffffff"/>
+      </svg>
+    </div>
+  </div>
+
+  <!-- Profile -->
+  <div class="profile-section">
+    <div class="avatar-ring">
+      <img
+        src="data:image/jpeg;base64,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"
+        alt="Prof. Dr. Awais Yasin"
+      >
+    </div>
+    <div class="badge">&#127942; TAMGHA-E-IMTIAZ &middot; TI</div>
+    <div class="name">Prof. Dr. Awais Yasin</div>
+    <div class="subtitle">CEO &amp; Founder &nbsp;|&nbsp; Robionix Technologies</div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- Buttons -->
+  <div class="buttons">
+
+    <!-- WhatsApp -->
+    <a class="btn btn-whatsapp" href="https://wa.me/923337696789" target="_blank" rel="noopener">
+      <svg class="btn-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path fill="#fff" d="M16 2.933C8.776 2.933 2.933 8.776 2.933 16c0 2.31.61 4.48 1.675 6.36L2.667 29.333l7.18-1.88A13.02 13.02 0 0016 29.067c7.224 0 13.067-5.843 13.067-13.067S23.224 2.933 16 2.933zm0 23.84a11.72 11.72 0 01-5.977-1.636l-.43-.255-4.26 1.116 1.134-4.145-.28-.448A11.71 11.71 0 014.24 16C4.24 9.497 9.497 4.24 16 4.24c6.503 0 11.76 5.257 11.76 11.76S22.503 26.773 16 26.773zm6.45-8.804c-.353-.177-2.09-1.031-2.414-1.149-.325-.118-.561-.177-.797.177-.236.354-.914 1.149-1.12 1.385-.207.236-.413.266-.766.089-.353-.177-1.49-.549-2.837-1.75-1.049-.935-1.757-2.09-1.963-2.443-.207-.354-.022-.545.155-.72.16-.158.354-.413.531-.62.177-.206.236-.354.354-.59.118-.236.059-.442-.03-.62-.089-.177-.797-1.921-1.09-2.63-.288-.69-.58-.595-.797-.607l-.678-.012c-.236 0-.62.089-.944.443-.325.354-1.238 1.208-1.238 2.947 0 1.74 1.267 3.421 1.444 3.657.177.236 2.494 3.81 6.04 5.342.845.365 1.503.583 2.017.746.847.27 1.618.232 2.228.14.68-.1 2.09-.854 2.384-1.679.295-.825.295-1.532.206-1.679-.088-.147-.323-.236-.677-.413z"/>
+      </svg>
+      Chat on WhatsApp
+    </a>
+
+    <!-- LinkedIn -->
+    <a class="btn btn-linkedin" href="https://pk.linkedin.com/in/awais79" target="_blank" rel="noopener">
+      <svg class="btn-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path fill="#fff" d="M27.26 27.263h-4.737v-7.425c0-1.77-.031-4.046-2.465-4.046-2.467 0-2.845 1.928-2.845 3.918v7.553H12.48V12.12h4.548v2.087h.063c.634-1.2 2.18-2.465 4.487-2.465 4.8 0 5.685 3.16 5.685 7.27v8.251zM7.12 10.03a2.747 2.747 0 110-5.495 2.747 2.747 0 010 5.495zM9.494 27.263H4.748V12.12h4.746v15.143z"/>
+      </svg>
+      Connect on LinkedIn
+    </a>
+
+    <!-- Website -->
+    <a class="btn btn-website" href="https://robionix.com/" target="_blank" rel="noopener">
+      <svg class="btn-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path fill="#fff" d="M16 2.667C8.636 2.667 2.667 8.636 2.667 16S8.636 29.333 16 29.333 29.333 23.364 29.333 16 23.364 2.667 16 2.667zm-1.333 24.48c-5.337-.64-9.456-5.189-9.333-10.614.014-.58.07-1.15.164-1.706l6.502 6.502v1.333c0 1.066.8 1.944 1.84 2.058l.827.427zm9.036-3.356c-.266-.8-1-1.458-1.97-1.458h-1.4v-4c0-.737-.597-1.333-1.333-1.333H9.333V14.667H12c.736 0 1.333-.597 1.333-1.334V10.667h2.667c1.467 0 2.667-1.2 2.667-2.667V7.45a10.58 10.58 0 016.4 6.55H22.4c-1.467 0-2.667 1.2-2.667 2.667V18c0 .736.597 1.333 1.334 1.333H22.4c1.2 0 2.267.8 2.667 1.84-.107.72-.293 1.414-.56 2.078l.196-.124z"/>
+      </svg>
+      Visit Website
+    </a>
+
+  </div>
+
+</div>
+</body>
+</html>
